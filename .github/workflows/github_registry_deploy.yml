@@ -1,10 +1,14 @@
 # this workflow is triggered by an API call when there is a new PyPI release of LiteLLM
 name: Build, Publish Docker Image in DockerHub and Gitlab Registry
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: "The tag version you want to build"
+    push:
+        branches:
+        - main
+        - master
+#   workflow_dispatch:
+#     inputs:
+#       tag:
+#         description: "The tag version you want to build"
 
 # Defines two custom environment variables for the workflow. Used for the Container registry domain, and a name for the Docker image that this workflow builds.
 env:

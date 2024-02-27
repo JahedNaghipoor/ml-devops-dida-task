@@ -2,12 +2,16 @@
 name: Deploy CICD for Project Workflow
 
 on:
-  workflow_dispatch:
-    inputs:
-      project_name:
-        description: 'Project Name'
-        required: true
-        default: ml_devops_dida_task
+  push:
+    branches:
+      - main
+      - master
+  # workflow_dispatch:
+  #   inputs:
+  #     project_name:
+  #       description: 'Project Name'
+  #       required: true
+  #       default: ml_devops_dida_task
 
 jobs:
   cicd:
@@ -24,7 +28,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git checkout -b add-cicd-for-${{ github.event.inputs.project_name }}
           git add .
           git commit -m "Add CICD for ${{ github.event.inputs.project_name }}"
           git push origin add-cicd-for-${{ github.event.inputs.project_name }}
