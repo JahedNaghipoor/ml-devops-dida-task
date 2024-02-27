@@ -34,10 +34,6 @@ VersionOption = typer.Option(
     help="print the program version and exit"
 )
 
-@app.post("/predict")
-def predict(text: str):
-    model = pipeline("text-classification", model="your_llm_model_name")
-    return model(text)
 
 @app.command()
 def main(config_file: str = ConfigOption, version: bool = VersionOption):
@@ -55,6 +51,10 @@ def main(config_file: str = ConfigOption, version: bool = VersionOption):
     logger.info("Looks like you're all set up. Let's get going!")
     
     app = FastAPI()
+    @app.post("/predict")
+    def predict(text: str):
+        model = pipeline("text-generation", model="facebook/opt-350m")
+        return model(text)
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
