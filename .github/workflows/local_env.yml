@@ -17,7 +17,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Docker Desktop and k3d
-        if: runner.os == 'Windows' || runner.os == 'Mac'
         run: |
           # Install Docker Desktop on Windows or Mac
           # Please replace the download link with the latest version
