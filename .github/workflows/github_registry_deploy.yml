@@ -33,14 +33,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: litellm/litellm:${{ github.event.inputs.tag || 'latest' }} 
-      -
-        name: Build and push litellm-database image
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          file: Dockerfile.database
-          tags: litellm/litellm-database:${{ github.event.inputs.tag || 'latest' }}
+          tags: ml_devops_dida_task:${{ github.event.inputs.tag || 'latest' }} 
       
   build-and-push-image:
     runs-on: ubuntu-latest
