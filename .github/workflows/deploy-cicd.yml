@@ -9,8 +9,6 @@ on:
         required: true
         default: ml_devops_dida_task
 
-env:
-
 jobs:
   cicd:
     runs-on: ubuntu-latest
