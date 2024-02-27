@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ml_devops_dida_task:${{ github.event.inputs.tag || 'latest' }} 
+          tags: jahednaghipoor/ml_devops_dida_task:${{ github.event.inputs.tag || 'latest' }} 
       
   build-and-push-image:
     runs-on: ubuntu-latest
