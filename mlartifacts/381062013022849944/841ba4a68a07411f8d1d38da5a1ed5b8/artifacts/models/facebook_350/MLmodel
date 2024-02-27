@@ -1,0 +1,19 @@
+artifact_path: models/facebook_350
+flavors:
+  python_function:
+    cloudpickle_version: 2.2.1
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.11.3
+mlflow_version: 2.10.1
+model_size_bytes: 4870
+model_uuid: 4d7bcf01939347de97bc8b907b59882e
+run_id: 841ba4a68a07411f8d1d38da5a1ed5b8
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: values
+  type: dataframe
+utc_time_created: '2024-02-27 11:39:08.939302'

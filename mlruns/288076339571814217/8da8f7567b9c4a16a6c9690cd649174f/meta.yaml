@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/288076339571814217/8da8f7567b9c4a16a6c9690cd649174f/artifacts
+end_time: 1709033313290
+entry_point_name: ''
+experiment_id: '288076339571814217'
+lifecycle_stage: active
+run_id: 8da8f7567b9c4a16a6c9690cd649174f
+run_name: log_model_facebook_350
+run_uuid: 8da8f7567b9c4a16a6c9690cd649174f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709033269508
+status: 4
+tags: []
+user_id: jaheed.naghipoor

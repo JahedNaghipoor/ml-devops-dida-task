@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/288076339571814217/cf86fce07c004a8e9d486c6496feb341/artifacts
+end_time: 1709033275778
+entry_point_name: ''
+experiment_id: '288076339571814217'
+lifecycle_stage: active
+run_id: cf86fce07c004a8e9d486c6496feb341
+run_name: log_model_gpt2large
+run_uuid: cf86fce07c004a8e9d486c6496feb341
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709033273284
+status: 3
+tags: []
+user_id: jaheed.naghipoor

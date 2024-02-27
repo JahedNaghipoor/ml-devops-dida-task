@@ -1,0 +1,19 @@
+artifact_path: models/gpt2large
+flavors:
+  python_function:
+    cloudpickle_version: 2.2.1
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.11.3
+mlflow_version: 2.10.1
+model_size_bytes: 4893
+model_uuid: 17f3699c30b54304a0b1260f2b861be3
+run_id: 3e40a87702324eafba563358795a2e11
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: values
+  type: dataframe
+utc_time_created: '2024-02-27 11:33:48.036371'

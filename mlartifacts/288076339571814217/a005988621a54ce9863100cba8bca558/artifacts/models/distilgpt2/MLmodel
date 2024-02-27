@@ -1,0 +1,19 @@
+artifact_path: models/distilgpt2
+flavors:
+  python_function:
+    cloudpickle_version: 2.2.1
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.11.3
+mlflow_version: 2.10.1
+model_size_bytes: 4893
+model_uuid: c95f55bd52164d3ebf50211f37b617e6
+run_id: a005988621a54ce9863100cba8bca558
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: values
+  type: dataframe
+utc_time_created: '2024-02-27 11:32:27.222386'

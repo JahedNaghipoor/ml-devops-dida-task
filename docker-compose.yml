@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  ml-devops-dida-task:
+    image: 'at/ml-devops-dida-task:latest'
+    build:
+      context: .
+      args:
+        PYTHON_IMAGE_TAG: "3.8-stretch"
+    command: '--help'
+    tty: true

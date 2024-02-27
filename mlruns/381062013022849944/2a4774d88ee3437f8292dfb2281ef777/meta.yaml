@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/381062013022849944/2a4774d88ee3437f8292dfb2281ef777/artifacts
+end_time: 1709033958048
+entry_point_name: ''
+experiment_id: '381062013022849944'
+lifecycle_stage: active
+run_id: 2a4774d88ee3437f8292dfb2281ef777
+run_name: distilgpt2
+run_uuid: 2a4774d88ee3437f8292dfb2281ef777
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709033955508
+status: 3
+tags: []
+user_id: jaheed.naghipoor

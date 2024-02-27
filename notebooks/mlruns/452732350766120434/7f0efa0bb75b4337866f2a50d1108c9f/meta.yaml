@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/jaheed.naghipoor/Projects/ml-devops-dida-task/notebooks/mlruns/452732350766120434/7f0efa0bb75b4337866f2a50d1108c9f/artifacts
+end_time: 1709033203485
+entry_point_name: ''
+experiment_id: '452732350766120434'
+lifecycle_stage: active
+run_id: 7f0efa0bb75b4337866f2a50d1108c9f
+run_name: log_model_gpt2large
+run_uuid: 7f0efa0bb75b4337866f2a50d1108c9f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709033138494
+status: 3
+tags: []
+user_id: jaheed.naghipoor
