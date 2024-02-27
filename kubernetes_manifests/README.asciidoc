@@ -1,0 +1,122 @@
+= Deploying a local cluster
+:sectnums:
+ 
+=== ONLY FOR WINDOWS USERS
+
+Windows Subsystem for Linux (WSL) is a feature of Windows that allows developers
+to run a Linux environment without the need for a separate virtual machine or dual booting.
+If you don't have WSL enabled and a distribution is not installed please follow the instructions in this section.
+For the training we will use WSL for interacting with cluster.
+
+Install WSL2 on your Windows machine: https://learn.microsoft.com/en-us/windows/wsl/install[Reference] 
+
+
+Run the following command in Windows Powershell terminal to install the WSL2:
+[source, bash]
+----
+wsl --install -d Ubuntu-20.04
+----
+Note: You can install any distribution of your choice, but we recommend to use Ubuntu 20.04 as we have tested our tutorials on this setup. For Windows, we would use WSL for creating and interacting with Kubernetes cluster. Once WSL installed, all the subsequent commands should be run in WSL terminal.
+
+=== Install docker-desktop (For Windows and Mac)
+If you have not installed Docker Desktop, please follow the steps in this section:
+
+==== For Windows users:
+
+. Click https://www.docker.com/products/docker-desktop/[here] to download the latest docker desktop for your OS
+
+. Select WSL 2 as backend when installing docker-desktop
++
+
+image::./images/01_Docker_install.png[title="Docker installation for windows"]
++
+. After the installation is complete, verify:
++
+image::./images/02_Docker_config.png[title="Verify in docker settings"]
++
+
+
+==== For Mac users
+
+. Click https://www.docker.com/products/docker-desktop/[here] to download the latest docker desktop for your OS
+
+
+
+
+=== Install cluster manager
+
+We will be using https://k3d.io/v5.4.6/[k3d] distribution for the maximum compatibility. Please https://k3d.io/v5.4.6/#installation[follow the official installation instructions for your system].
+
+=== Create the cluster
+
+First let's create a folder that we will use as our persistent storage. Please run the
+following command in WSL terminal to create a directory:
+
+[source, bash]
+----
+mkdir -p /tmp/k3dvol
+----
+
+With our k3d manager, creating a cluster is as simple as one command:
+
+[source,bash]
+----
+k3d cluster create workshop --volume /tmp/k3dvol:/tmp/k3dvol -p "80:80@loadbalancer"
+----
+
+TIP: Option "-p" creates a port-forwarding between local machine and newly created cluster +
+Option "--volume" adds our local volume to our cluster for persistence
+
+Open Docker Desktop > Containers to see that there is a port forwarding between your localhost and that of the container
+
+image::./images/04_k3d_CheckStatus.png[title="Verify"]
+
+
+=== Check your cluster
+
+[source,bash]
+----
+kubectl get nodes
+----
+==========================
+*Expected output*
+----
+NAME                    STATUS   ROLES                  AGE   VERSION
+
+k3d-workshop-server-0   Ready    control-plane,master   8d    v1.24.4+k3s1
+----
+==========================
+
+NOTE: If kubectl command does not work. WSL users check https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/[here] . Mac users check https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/[here].
+
+
+=== Check your cluster
+
+[source,bash]
+----
+docker ps
+----
+==========================
+*Expected output*
+----
+CONTAINER ID   IMAGE                            COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+
+c8b7e462950a   28edc52f957e                     "/bin/sh -c nginx-pr…"   7 days ago       Up 7 days       0.0.0.0:80->80/tcp, 0.0.0.0:60735->6443/tcp   k3d-workshop-serverlb
+
+59474ce3a366   ghcr.io/k3d-io/k3d-tools:5.4.6   "/app/k3d-tools noop"    8 days ago       Up 8 days       k3d-workshop-tools
+5797a7a671b4   rancher/k3s:v1.24.4-k3s1         "/bin/k3d-entrypoint…"   8 days ago       Up 8 days       k3d-workshop-server-0
+----
+==========================
+
+=== Create a namespace
+[source,bash]
+----
+kubectl create namespace workshop
+# Set the namespace for all  subsequent kubectl commands in that context
+kubectl config set-context --current --namespace=workshop
+# Verify
+kubectl config view --minify | grep namespace:
+----
+
+
+We are done with preparation and can move on to the beginning of the workshop.
