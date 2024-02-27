@@ -2,3 +2,10 @@
 # It should not contain dependencies for tests, developer tools, etc. (see requirements-dev.txt)
 PyYAML~=6.0
 typer[all]~=0.7.0
+
+transformers 
+accelerate 
+torch 
+mlflow==2.10.1
+fastapi
+uvicorn

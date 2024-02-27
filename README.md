@@ -65,6 +65,13 @@ Before contributing, please set up the pre-commit hooks to reduce errors and ens
 
 If you run into any issues, you can remove the hooks again with `pre-commit uninstall`.
 
+### How to run the application
+- Step 1: When we push the code to github repository, github action will be triggered and teh code will be updated in the repository and two Docker image (in dockerHub and Github Registry) with be created.
+
+- Step 2: To run the application in a scalable environment, we need to install Docker desktop and K3D (lightweight Kubernetes for local users). To do that please proceed to [set up local environment](kubernetes_manifests/README.asciidoc)
+
+- Step 3: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
+
 ## Contact
 
 Dr. Jahed Naghipoor (jahednaghipoor1361@gmail.com)

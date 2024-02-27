@@ -1,5 +1,8 @@
 import logging
-
+import uvicorn
+import requests
+from fastapi import FastAPI
+from transformers import pipeline
 import typer
 
 from ml_devops_dida_task import __title__, __version__, util
@@ -31,6 +34,10 @@ VersionOption = typer.Option(
     help="print the program version and exit"
 )
 
+@app.post("/predict")
+def predict(text: str):
+    model = pipeline("text-classification", model="your_llm_model_name")
+    return model(text)
 
 @app.command()
 def main(config_file: str = ConfigOption, version: bool = VersionOption):
@@ -46,8 +53,15 @@ def main(config_file: str = ConfigOption, version: bool = VersionOption):
     config = util.load_config(config_file)
     util.logging_setup(config)
     logger.info("Looks like you're all set up. Let's get going!")
-    # TODO your journey starts here
+    
+    app = FastAPI()
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
 if __name__ == "__main__":
     app()
+
+    url = 'http://localhost:8000/predict'
+    payload = {"text": "Your text data here"}
+    response = requests.post(url, json=payload, timeout=60)
+    print(response.json())

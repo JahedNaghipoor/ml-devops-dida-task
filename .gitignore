@@ -75,3 +75,6 @@ venv*/
 # exclude data from source control (but keep the folder)
 data/*
 !data/.gitkeep
+
+notebooks/mlruns/*
+mlartifacts/*

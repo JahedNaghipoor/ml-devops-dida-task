@@ -4,13 +4,13 @@ metadata:
   name: my-ingress
 spec:
   rules:
-  - host: example.com
+  - host: fast-api-dida.com
     http:
       paths:
       - pathType: Prefix
         path: /
         backend:
           service:
-            name: my-service
+            name: fast-api-service
             port:
               number: 80

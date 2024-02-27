@@ -61,8 +61,10 @@ With our k3d manager, creating a cluster is as simple as one command:
 
 [source,bash]
 ----
-k3d cluster create workshop --volume /tmp/k3dvol:/tmp/k3dvol -p "80:80@loadbalancer"
+k3d cluster create dida-mlops-cluster --kubeconfig-update-default --volume /tmp/k3dvol:/tmp/k3dvol -p "80:80@loadbalancer"
 ----
+
+The new cluster would be added to previous clusters in kubeconfig (~/.kube/config) and being set as default cluster.
 
 TIP: Option "-p" creates a port-forwarding between local machine and newly created cluster +
 Option "--volume" adds our local volume to our cluster for persistence
@@ -111,7 +113,7 @@ c8b7e462950a   28edc52f957e                     "/bin/sh -c nginx-pr…"   7 day
 === Create a namespace
 [source,bash]
 ----
-kubectl create namespace workshop
+kubectl create namespace dida-mlops-test
 # Set the namespace for all  subsequent kubectl commands in that context
 kubectl config set-context --current --namespace=workshop
 # Verify

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: fast-api-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-app
+      app: fast-api-application
   template:
     metadata:
       labels:
-        app: my-app
+        app: fast-api-application
     spec:
       containers:
-      - name: my-container
-        image: my-image:latest
+      - name: ml-devops-dida-task
+        image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-latest
         ports:
         - containerPort: 80
