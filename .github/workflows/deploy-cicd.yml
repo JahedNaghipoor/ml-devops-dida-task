@@ -25,7 +25,7 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git checkout -b add-cicd-for-${{ github.event.inputs.project_name }}
-          git add .github 
+          git add .
           git commit -m "Add CICD for ${{ github.event.inputs.project_name }}"
           git push origin add-cicd-for-${{ github.event.inputs.project_name }}
       - name: Create Pull Request
