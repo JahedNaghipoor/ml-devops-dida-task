@@ -1,6 +1,0 @@
-artifact_location: mlflow-artifacts:/381062013022849944
-creation_time: 1709033948925
-experiment_id: '381062013022849944'
-last_update_time: 1709033948925
-lifecycle_stage: active
-name: compare_llm_models
