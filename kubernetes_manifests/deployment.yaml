@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fast-api-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: fast-api-application
@@ -17,3 +17,11 @@ spec:
         image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-latest
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "1"
+            memory: "1Gi"
+        restartPolicy: Never

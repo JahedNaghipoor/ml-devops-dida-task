@@ -76,5 +76,7 @@ venv*/
 data/*
 !data/.gitkeep
 
+#exclude mlflow run artifacts
 notebooks/mlruns/*
 mlartifacts/*
+mlruns/*
