@@ -1,6 +1,6 @@
 # ML DevOps Dida Task
 
-In this project, we deploy a simple text classification service based on a pre-trained NLP.
+In this project, we deploy a simple text classification service based on a pre-trained NLP model.
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ this will build the entire project with all dependencies inside a docker contain
 
 ### Testing
 
-We use `pytest` as test framework. To execute the tests, please run
+To execute the tests using test framework `pytest` , please run
 
     pytest tests
 
@@ -66,11 +66,27 @@ Before contributing, please set up the pre-commit hooks to reduce errors and ens
 If you run into any issues, you can remove the hooks again with `pre-commit uninstall`.
 
 ### How to run the application
-- Step 1: When we push the code to github repository, github action will be triggered and teh code will be updated in the repository and two Docker image (in dockerHub and Github Registry) with be created.
+- Step 1: When we push the code to the Github repository, Github Action will be triggered and the code will be updated in the repository and two Docker images (in DockerHub and Github Registry) with be created.
 
-- Step 2: To run the application in a scalable environment, we need to install Docker desktop and K3D (lightweight Kubernetes for local users). To do that please proceed to [set up local environment](kubernetes_manifests/README.asciidoc)
+- Step 2: To run the application in a scalable environment, we need to install Docker Desktop and K3d (lightweight Kubernetes for local users). To do that please proceed to [set up local environment](kubernetes_manifests/README.asciidoc)
 
 - Step 3: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
+  
+  `kubectl apply -f ./kubernetes_manifests`. 
+  
+  That will deploy all necessary components to run the container in K3d.
+
+### How to deploy the application in AWS
+
+- Create an AWS account if you don't have any.
+- Set up necessary IAM roles and permissions using Terraform.
+- Deploy code in AWS code commits.
+- Use AWS CodeBuild for code deployment.
+- Provision Amazon EKS for Kubernetes.
+- Store Docker images in Amazon ECR as container registery.
+- Set up auto-scaling groups and configure scaling policies.
+- Configure AWS Elastic Load Balancing or Kubernetes native features to distribute incoming traffic.
+- Use AWS Route 53 for DNS management.
 
 ## Contact
 
