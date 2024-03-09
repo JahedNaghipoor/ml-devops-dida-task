@@ -44,7 +44,6 @@ def main():
     def predict(text: str):
 
         loaded_model = classifier.load_model("facebook_350") # load facebook_350 model
-
         predictions = loaded_model.predict(text)
         return predictions
     uvicorn.run(app, host="0.0.0.0", port=8000)
