@@ -68,10 +68,18 @@ If you run into any issues, you can remove the hooks again with `pre-commit unin
 
 - Step 3: Run Docker Desktop in your local machine and choose created k3d cluster as the current cluster in `kubeconfig` (if you already setup multiple Kubernetes cluster in your local system).
 
-- Step 4: Run `sudo vi /private/etc/hosts` in mac or in Windows open `C:\Windows\System32\drivers\etc` in Admin mode and add the following command to it
-  `127.0.0.1       fast-api-dida.com`. This would let page fast-api-dida.com to be opened in the browser. This step is needed as K3d does not have Ingress Controller by default. We dont need to do this step, when we use Kubernetes cloud version lik EKS in AWS where we can take advantage of Route53.
+- Step 4: Run `sudo vi /private/etc/hosts` in mac or open `C:\Windows\System32\drivers\etc` as Admin mode in Windows and add the following command
+  `127.0.0.1       fast-api-dida.com`. This would let fast-api-dida.com to be opened in the browser. This step is needed as K3d does not have Ingress Controller by default. We dont need to do this step, when we use Kubernetes cloud version like EKS in AWS where we can take advantage of Route53.
 
-- Step 5: As mlflow is already installed locally, run `mlflow ui -p 5000` (or any other port, when 5000 is not free) in command line. The other option is to install mlflow as Helm Chart in Kubernetes
+- Step 5: Install mlflow as Helm chart:
+   1. `helm repo add community-charts https://community-charts.github.io/helm-charts`
+   2. `helm repo update`
+   3. `helm install mlflow  community-charts/mlflow -n dida-mlops-test`
+   4. `export POD_NAME=$(kubectl get pods -n dida-mlops-test -l "app.kubernetes.io/name=mlflow,app.kubernetes.io/instance=mlflow" -o jsonpath="{.items[0].metadata.name}")`
+   5. `export CONTAINER_PORT=$(kubectl get pod -n dida-mlops-test $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")`
+   6. `kubectl -n dida-mlops-test port-forward $POD_NAME 8080:$CONTAINER_PORT`
+ - 
+-  As mlflow is already installed locally, run `mlflow ui -p 5000` (or any other port, when 5000 is not free) in command line. The other option is to install mlflow as Helm Chart in Kubernetes
 
 - Step 6: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
   

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: ml-devops-dida-task
-        image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-test
+        image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-latest
         command:
           - sh
           - -c
