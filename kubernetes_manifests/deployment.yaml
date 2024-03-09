@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fast-api-deployment
+  namespace: dida-mlops-test
 spec:
   replicas: 1
   selector:
@@ -14,11 +15,11 @@ spec:
     spec:
       containers:
       - name: ml-devops-dida-task
-        image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-latest
-        # command:
-        #   - sh
-        #   - -c
-        #   - python main.py
+        image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-test
+        command:
+          - sh
+          - -c
+          - python src/ml_devops_dida_task/main.py
         ports:
         - containerPort: 80
         resources:

@@ -10,8 +10,6 @@ from mlflow import MlflowClient
 from ml_devops_dida_task import __title__, __version__
 from ml_devops_dida_task.notebooks import train
 
-mlflow.set_tracking_uri("http://localhost:5003")
-
 logger = logging.getLogger('ml_devops_dida_task')
 
 app = typer.Typer(name='ml_devops_dida_task')
