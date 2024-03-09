@@ -10,4 +10,3 @@ torch
 mlflow==2.10.1
 fastapi
 uvicorn
-request
