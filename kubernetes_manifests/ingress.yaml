@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: dida-mlops-ingress
-  namespace: dida-mlops-test
+  namespace: dida-mlops
 spec:
   rules:
   - host: dida-mlops.com

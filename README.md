@@ -14,6 +14,8 @@ With the second command, you'll get an editable installation of the module, so t
 
 You can now access the CLI with `python -m ml_devops_dida_task`.
 
+Open `http://0.0.0.0:8000/docs` in FastAPI and test the prediction with new text.
+
 To deploy this project as a docker container, please ensure that [Docker](https://docs.docker.com/install/) is installed.
 
 ### Testing

@@ -1,12 +1,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: php-apache
+  name: dida-mlops-hpa
+  namespace: dida-mlops
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: fast-api-deployment
+    name: dida-mlops-deployment
   minReplicas: 1
   maxReplicas: 10
   metrics:
