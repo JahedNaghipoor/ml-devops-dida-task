@@ -14,9 +14,8 @@ With the second command, you'll get an editable installation of the module, so t
 
 You can now access the CLI with `python -m ml_devops_dida_task`.
 
-Open `http://0.0.0.0:8000/docs` in FastAPI and test the prediction with new text.
+Open `http://0.0.0.0:8000/docs` in FastAPI and test the prediction with new text. Run `mlflow ui` and open `http://0.0.0.0:5000` to track experiements and registered models
 
-To deploy this project as a docker container, please ensure that [Docker](https://docs.docker.com/install/) is installed.
 
 ### Testing
 
@@ -71,15 +70,15 @@ If you run into any issues, you can remove the hooks again with `pre-commit unin
 - Step 3: Run Docker Desktop in your local machine and choose created k3d cluster as the current cluster in `kubeconfig` (if you already setup multiple Kubernetes cluster in your local system).
 
 - Step 4: Run `sudo vi /private/etc/hosts` in mac or open `C:\Windows\System32\drivers\etc` as Admin mode in Windows and add the following command
-  `127.0.0.1       dida-mlops.com`. This would let fast-api-dida.com to be opened in the browser. This step is needed as K3d does not have Ingress Controller by default. We dont need to do this step, when we use Kubernetes cloud version like EKS in AWS where we can take advantage of Route53.
+  `127.0.0.1       dida-mlops.com`. This would host fast-api in dida-mlops.com/8000 to be opened in the browser. This step is needed as K3d does not have Ingress Controller by default. We dont need to do this step, when we use Kubernetes cloud version like EKS in AWS where we can take advantage of Route53 and API Gateway.
 
-- Step 5: Install mlflow as Helm chart:
+- Step 5: Install mlflow as Helm chart anf forward the port to be opened in the browser:
    1. `helm repo add community-charts https://community-charts.github.io/helm-charts`
    2. `helm repo update`
    3. `helm install mlflow  community-charts/mlflow -n dida-mlops`
    4. `export POD_NAME=$(kubectl get pods -n dida-mlops -l "app.kubernetes.io/name=mlflow,app.kubernetes.io/instance=mlflow" -o jsonpath="{.items[0].metadata.name}")`
    5. `export CONTAINER_PORT=$(kubectl get pod -n dida-mlops $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")`
-   6. `kubectl -n dida-mlops-test port-forward $POD_NAME 8080:$CONTAINER_PORT`
+   6. `kubectl -n dida-mlops port-forward $POD_NAME 8080:$CONTAINER_PORT`
 
 - Step 6: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
   

@@ -5,7 +5,7 @@ from fastapi import FastAPI
 import typer
 import mlflow
 from ml_devops_dida_task import __title__, __version__
-from ml_devops_dida_task.notebooks import train
+from ml_devops_dida_task.Train import train
 
 mlflow.set_tracking_uri("http://localhost:5000")
 
