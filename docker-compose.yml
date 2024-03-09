@@ -6,6 +6,6 @@ services:
     build:
       context: .
       args:
-        PYTHON_IMAGE_TAG: "3.8-stretch"
-    command: '--help'
+        PYTHON_IMAGE_TAG: "3.11-bullseye"
+    command: 'pip install -r requiremenets.txt'
     tty: true

@@ -18,7 +18,7 @@ setup(
     version=__version__,
     author="Dr. Jahed Naghipoor",
     author_email="jahednaghipoor1361@gmail.com",
-    description="In this project, we deploy a simple text classification service based on a pre-trained NLP",
+    description="In this project, we deploy a simple text classification service based on a pre-trained NLP model",
     license="proprietary",
     url="",
     packages=find_packages("src"),

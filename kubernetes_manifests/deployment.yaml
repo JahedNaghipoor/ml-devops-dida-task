@@ -15,6 +15,10 @@ spec:
       containers:
       - name: ml-devops-dida-task
         image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-latest
+        # command:
+        #   - sh
+        #   - -c
+        #   - python main.py
         ports:
         - containerPort: 80
         resources:
