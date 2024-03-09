@@ -4,9 +4,13 @@ import requests
 import pandas as pd
 from fastapi import FastAPI
 import typer
+import mlflow
 from pprint import pprint
+from mlflow import MlflowClient
 from ml_devops_dida_task import __title__, __version__
 from ml_devops_dida_task.notebooks import train
+
+mlflow.set_tracking_uri("http://localhost:5000")
 
 logger = logging.getLogger('ml_devops_dida_task')
 
@@ -33,10 +37,8 @@ def main():
 
         # Train and register the model
         classifier.train_and_register_model()
-
     
     # Serve the model in FastAPI
-
     app = FastAPI()
     @app.post("/predict")
     def predict(text: str):
