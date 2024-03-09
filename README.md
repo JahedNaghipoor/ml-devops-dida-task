@@ -76,9 +76,9 @@ If you run into any issues, you can remove the hooks again with `pre-commit unin
 - Step 5: Install mlflow as Helm chart:
    1. `helm repo add community-charts https://community-charts.github.io/helm-charts`
    2. `helm repo update`
-   3. `helm install mlflow  community-charts/mlflow -n dida-mlops-test`
-   4. `export POD_NAME=$(kubectl get pods -n dida-mlops-test -l "app.kubernetes.io/name=mlflow,app.kubernetes.io/instance=mlflow" -o jsonpath="{.items[0].metadata.name}")`
-   5. `export CONTAINER_PORT=$(kubectl get pod -n dida-mlops-test $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")`
+   3. `helm install mlflow  community-charts/mlflow -n dida-mlops`
+   4. `export POD_NAME=$(kubectl get pods -n dida-mlops -l "app.kubernetes.io/name=mlflow,app.kubernetes.io/instance=mlflow" -o jsonpath="{.items[0].metadata.name}")`
+   5. `export CONTAINER_PORT=$(kubectl get pod -n dida-mlops $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")`
    6. `kubectl -n dida-mlops-test port-forward $POD_NAME 8080:$CONTAINER_PORT`
 
 - Step 6: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).

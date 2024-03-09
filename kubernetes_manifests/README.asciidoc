@@ -113,7 +113,7 @@ c8b7e462950a   28edc52f957e                     "/bin/sh -c nginx-pr…"   7 day
 === Create a namespace
 [source,bash]
 ----
-kubectl create namespace dida-mlops-test
+kubectl create namespace dida-mlops
 # Set the namespace for all  subsequent kubectl commands in that context
 kubectl config set-context --current --namespace=workshop
 # Verify
