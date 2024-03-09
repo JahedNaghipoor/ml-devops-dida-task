@@ -79,12 +79,13 @@ If you run into any issues, you can remove the hooks again with `pre-commit unin
   
   That will deploy all necessary components to run the application in K3d.
 
+
 ### How to deploy the application in AWS
 
 - Create an AWS account if you don't have any.
-- Set up necessary IAM roles and permissions using Terraform.
 - Deploy code in AWS code commits.
 - Use AWS CodeBuild for code deployment.
+- Set up necessary IAM roles and permissions using Terraform.
 - Provision Amazon EKS for Kubernetes.
 - Store Docker images in Amazon ECR as container registery.
 - Set up auto-scaling groups and configure scaling policies.
