@@ -14,11 +14,7 @@ With the second command, you'll get an editable installation of the module, so t
 
 You can now access the CLI with `python -m ml_devops_dida_task`.
 
-If you want to deploy this project as a docker container, please ensure that [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) are installed, then run
-
-    docker-compose up
-
-this will build the entire project with all dependencies inside a docker container. You may use the command line interface of the application now, e.g. by editing the `command` tag in the [`docker-compose.yml`](./docker-compose.yml).
+To deploy this project as a docker container, please ensure that [Docker](https://docs.docker.com/install/) is installed.
 
 ### Testing
 
@@ -70,12 +66,14 @@ If you run into any issues, you can remove the hooks again with `pre-commit unin
 
 - Step 2: To run the application in a scalable environment, we need to install Docker Desktop and K3d (lightweight Kubernetes for local users). To do that please proceed to [set up local environment](kubernetes_manifests/README.asciidoc)
 
-- Step 3: Run Docker Desktop in your local machine and choose k3d server as the current server and create a namespace to run the application.
+- Step 3: Run Docker Desktop in your local machine and choose created k3d cluster as the current cluster in `kubeconfig` (if you already setup multiple Kubernetes cluster in your local system).
 
-- Step 4: Run `sudo vi /private/etc/hosts` in mac or open `C:\Windows\System32\drivers\etc` in Admin mode and add the following command to it
+- Step 4: Run `sudo vi /private/etc/hosts` in mac or in Windows open `C:\Windows\System32\drivers\etc` in Admin mode and add the following command to it
   `127.0.0.1       fast-api-dida.com`. This would let page fast-api-dida.com to be opened in the browser. This step is needed as K3d does not have Ingress Controller by default. We dont need to do this step, when we use Kubernetes cloud version lik EKS in AWS where we can take advantage of Route53.
 
-- Step 5: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
+- Step 5: As mlflow is already installed locally, run `mlflow ui -p 5000` (or any other port, when 5000 is not free) in command line. The other option is to install mlflow as Helm Chart in Kubernetes
+
+- Step 6: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
   
   `kubectl apply -f ./kubernetes_manifests`.
   

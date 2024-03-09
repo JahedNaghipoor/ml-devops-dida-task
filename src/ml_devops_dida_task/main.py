@@ -78,7 +78,6 @@ def main():
 if __name__ == "__main__":
     app()
 
-
     url = 'http://localhost:8000/predict'
     payload = {"text": "Your text data here"}
     response = requests.post(url, json=payload, timeout=60)
