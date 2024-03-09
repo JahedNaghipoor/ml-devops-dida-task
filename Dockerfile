@@ -8,6 +8,5 @@ RUN pip install -r requirements.txt --no-cache-dir --prefer-binary
 COPY ./src ./src
 COPY README.md ./
 RUN pip install .
-RUN mlflow ui -p 5003
 
 ENTRYPOINT ["python", "-OO", "-m", "ml_devops_dida_task"]

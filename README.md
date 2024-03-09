@@ -66,7 +66,7 @@ Before contributing, please set up the pre-commit hooks to reduce errors and ens
 If you run into any issues, you can remove the hooks again with `pre-commit uninstall`.
 
 ### How to run the application
-- Step 1: When we push the code to the Github repository, Github Action will be triggered and the code will be updated in the repository and two Docker images (in DockerHub and Github Registry) with be created.
+- Step 1: When we push the code to the Github repository, Github Action will be triggered and the code will be updated in the repository and two Docker images (in DockerHub and Github Registry) with be created. See [GitHub Registry](https://github.com/JahedNaghipoor/ml-devops-dida-task/pkgs/container/ml-devops-dida-task) or [DockerHub](https://hub.docker.com/repository/docker/jahednaghipoor/ml_devops_dida_task/tags?page=1&ordering=last_updated)
 
 - Step 2: To run the application in a scalable environment, we need to install Docker Desktop and K3d (lightweight Kubernetes for local users). To do that please proceed to [set up local environment](kubernetes_manifests/README.asciidoc)
 
