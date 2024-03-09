@@ -4,9 +4,7 @@ import requests
 import pandas as pd
 from fastapi import FastAPI
 import typer
-import mlflow
 from pprint import pprint
-from mlflow import MlflowClient
 from ml_devops_dida_task import __title__, __version__
 from ml_devops_dida_task.notebooks import train
 
@@ -36,31 +34,8 @@ def main():
         # Train and register the model
         classifier.train_and_register_model()
 
-
-    # Define input sentence and label examples
-    sentence = "feeling like a million bucks"
-    labels = ["happy", "sad"]
-
-
-    # # Classify the sentence
-    # predicted_label = classifier.classify(sentence, labels)
-
-    # print("Input Sentence:", sentence)
-    # print("Predicted Label:", predicted_label)
     
-    # logged_model = 'runs:/fd4478e9d0e24e4aa8629720109bef87/distilgpt2'
-
-    # # Load model as a PyFuncModel.
-    # loaded_model = mlflow.pyfunc.load_model(logged_model)
-
-    # # model = mlflow.sklearn.load_model(model_uri=f"models:/{model_name}")
-
-    # loaded_model.predict("I am not happy at all!")
-    # loaded_model = mlflow.pyfunc.load_model(model_uri)
-
-    # predictions = loaded_model.predict("I am sad")
-    
-      # Serve the model in FastAPI
+    # Serve the model in FastAPI
 
     app = FastAPI()
     @app.post("/predict")

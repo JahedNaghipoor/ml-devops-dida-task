@@ -78,8 +78,6 @@ If you run into any issues, you can remove the hooks again with `pre-commit unin
    4. `export POD_NAME=$(kubectl get pods -n dida-mlops-test -l "app.kubernetes.io/name=mlflow,app.kubernetes.io/instance=mlflow" -o jsonpath="{.items[0].metadata.name}")`
    5. `export CONTAINER_PORT=$(kubectl get pod -n dida-mlops-test $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")`
    6. `kubectl -n dida-mlops-test port-forward $POD_NAME 8080:$CONTAINER_PORT`
- - 
--  As mlflow is already installed locally, run `mlflow ui -p 5000` (or any other port, when 5000 is not free) in command line. The other option is to install mlflow as Helm Chart in Kubernetes
 
 - Step 6: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
   
