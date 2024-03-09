@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: dida-mlops-app-container
-        image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-v1 # image and its version
+        image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-v2 # image and its version
         command:
           - sh
           - -c
