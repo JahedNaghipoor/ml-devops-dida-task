@@ -70,11 +70,16 @@ If you run into any issues, you can remove the hooks again with `pre-commit unin
 
 - Step 2: To run the application in a scalable environment, we need to install Docker Desktop and K3d (lightweight Kubernetes for local users). To do that please proceed to [set up local environment](kubernetes_manifests/README.asciidoc)
 
-- Step 3: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
+- Step 3: Run Docker Desktop in your local machine and choose k3d server as the current server and create a namespace to run the application.
+
+- Step 4: Run `sudo vi /private/etc/hosts` in mac or open `C:\Windows\System32\drivers\etc` in Admin mode and add the following command to it
+  `127.0.0.1       fast-api-dida.com`. This would let page fast-api-dida.com to be opened in the browser. This step is needed as K3d does not have Ingress Controller by default. We dont need to do this step, when we use Kubernetes cloud version lik EKS in AWS where we can take advantage of Route53.
+
+- Step 5: Run the following command to deploy necessary components for the application (deployment, service, ingress and hpa).
   
-  `kubectl apply -f ./kubernetes_manifests`. 
+  `kubectl apply -f ./kubernetes_manifests`.
   
-  That will deploy all necessary components to run the container in K3d.
+  That will deploy all necessary components to run the application in K3d.
 
 ### How to deploy the application in AWS
 
