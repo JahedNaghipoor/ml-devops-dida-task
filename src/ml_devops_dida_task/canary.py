@@ -22,11 +22,11 @@ def main():
     logger.info("Looks like you're all set up. Let's get going!")
     
     # Initialize the few-shot text classifier with the model and MLflow experiment name
-    classifier = train.FewShotTextClassifier(run_name="facebook_bart", model_name="facebook/bart-large-mnli", mlflow_experiment_name="ZeroShotClassifier")
+    classifier = train.FewShotTextClassifier(run_name="nli-deberta-base", model_name="cross-encoder/nli-deberta-base", mlflow_experiment_name="ZeroShotClassifier")
 
     # Train and register the model in mlflow
     classifier.train_and_register_model()
-    
+
     # Serve the model in FastAPI
     app = FastAPI()
     @app.post("/predict")

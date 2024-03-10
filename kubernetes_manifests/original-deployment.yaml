@@ -4,22 +4,24 @@ metadata:
   name: dida-mlops-deployment
   namespace: dida-mlops
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: dida-mlops-application
+      model: original
   template:
     metadata:
       labels:
         app: dida-mlops-application
+        model: original
     spec:
       containers:
-      - name: dida-mlops-app-container
+      - name: dida-mlops-app-container-original
         image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-v2 # image and its version
         command:
           - sh
           - -c
-          - python src/ml_devops_dida_task/main.py
+          - python src/ml_devops_dida_task/main.py # run and deploy original model - facebook/bart-large-mnli (75% traffic)
         ports:
         - containerPort: 80
         resources:

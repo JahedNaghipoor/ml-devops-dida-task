@@ -5,7 +5,7 @@ metadata:
   namespace: dida-mlops
 spec:
   selector:
-    app: dida-mlops-application
+    app: dida-mlops-application # detect original and canary models and distribute request based on number of replicasets in each deployment (75% -25%)
   ports:
     - protocol: TCP
       port: 80

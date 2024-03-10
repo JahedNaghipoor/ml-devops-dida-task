@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dida-mlops-deployment
+  namespace: dida-mlops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dida-mlops-application
+      model: canary
+  template:
+    metadata:
+      labels:
+        app: dida-mlops-application
+        model: canary
+    spec:
+      containers:
+      - name: dida-mlops-app-container-canary
+        image: ghcr.io/jahednaghipoor/ml-devops-dida-task:main-v2 # image and its version
+        command:
+          - sh
+          - -c
+          - python src/ml_devops_dida_task/main-canary.py # run and deploy canary model - cross-encoder/nli-deberta-base (%25% traffic)
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "1"
+            memory: "4Gi"
+          requests:
+            cpu: "1"
+            memory: "4Gi"
