@@ -7,7 +7,7 @@ import mlflow
 from ml_devops_dida_task import __title__, __version__
 from ml_devops_dida_task.Train import train
 
-mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.set_tracking_uri("http://localhost:5000") # change the port to 5001, if port 5000 is occupied 
 
 logger = logging.getLogger('ml_devops_dida_task')
 

@@ -14,7 +14,7 @@ With the second command, you'll get an editable installation of the module, so t
 
 You can now access the CLI with `python -m ml_devops_dida_task`.
 
-Open `http://0.0.0.0:8000/docs` in FastAPI and test the prediction with new text. Run `mlflow ui` and open `http://0.0.0.0:5000` to track experiements and registered models
+Open `http://0.0.0.0:8000/docs` in FastAPI and test the prediction with new text. Run `mlflow ui -p 5000` and open `http://0.0.0.0:5000` to track experiements and registered models
 
 
 ### Testing

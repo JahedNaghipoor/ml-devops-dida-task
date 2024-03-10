@@ -8,7 +8,6 @@ spec:
   selector:
     matchLabels:
       app: dida-mlops-application
-      model: original
   template:
     metadata:
       labels:
