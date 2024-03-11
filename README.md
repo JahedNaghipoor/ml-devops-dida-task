@@ -72,7 +72,7 @@ If you run into any issues, you can remove the hooks again with `pre-commit unin
 - Step 4: Run `sudo vi /private/etc/hosts` in mac or open `C:\Windows\System32\drivers\etc` as Admin mode in Windows and add the following command
   `127.0.0.1       dida-mlops.com`. This would host fast-api in dida-mlops.com/8000 to be opened in the browser. This step is needed as K3d does not have Ingress Controller by default. We dont need to do this step, when we use Kubernetes cloud version like EKS in AWS where we can take advantage of Route53 and API Gateway.
 
-- Step 5: Install mlflow as Helm chart anf forward the port to be opened in the browser:
+- Step 5: Install mlflow as Helm chart and forward the port to be opened in the browser:
    1. `helm repo add community-charts https://community-charts.github.io/helm-charts`
    2. `helm repo update`
    3. `helm install mlflow  community-charts/mlflow -n dida-mlops`

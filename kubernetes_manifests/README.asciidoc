@@ -85,7 +85,7 @@ kubectl get nodes
 ----
 NAME                    STATUS   ROLES                  AGE   VERSION
 
-k3d-workshop-server-0   Ready    control-plane,master   8d    v1.24.4+k3s1
+k3d-dida-mlops-server-0   Ready    control-plane,master   8d    v1.24.4+k3s1
 ----
 ==========================
 
@@ -103,10 +103,10 @@ docker ps
 ----
 CONTAINER ID   IMAGE                            COMMAND                  CREATED          STATUS          PORTS                                         NAMES
 
-c8b7e462950a   28edc52f957e                     "/bin/sh -c nginx-pr…"   7 days ago       Up 7 days       0.0.0.0:80->80/tcp, 0.0.0.0:60735->6443/tcp   k3d-workshop-serverlb
+c8b7e462950a   28edc52f957e                     "/bin/sh -c nginx-pr…"   7 days ago       Up 7 days       0.0.0.0:80->80/tcp, 0.0.0.0:60735->6443/tcp   k3d-dida-mlops-serverlb
 
-59474ce3a366   ghcr.io/k3d-io/k3d-tools:5.4.6   "/app/k3d-tools noop"    8 days ago       Up 8 days       k3d-workshop-tools
-5797a7a671b4   rancher/k3s:v1.24.4-k3s1         "/bin/k3d-entrypoint…"   8 days ago       Up 8 days       k3d-workshop-server-0
+59474ce3a366   ghcr.io/k3d-io/k3d-tools:5.4.6   "/app/k3d-tools noop"    8 days ago       Up 8 days       k3d-dida-mlops-tools
+5797a7a671b4   rancher/k3s:v1.24.4-k3s1         "/bin/k3d-entrypoint…"   8 days ago       Up 8 days       k3d-dida-mlops-server-0
 ----
 ==========================
 
@@ -115,7 +115,7 @@ c8b7e462950a   28edc52f957e                     "/bin/sh -c nginx-pr…"   7 day
 ----
 kubectl create namespace dida-mlops
 # Set the namespace for all  subsequent kubectl commands in that context
-kubectl config set-context --current --namespace=workshop
+kubectl config set-context --current --namespace=dida-mlops
 # Verify
 kubectl config view --minify | grep namespace:
 ----
